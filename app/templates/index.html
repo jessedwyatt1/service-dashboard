@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Dashboard</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="toggle-container">
+        <div id="toggle-mode" class="toggle-switch"></div>
+    </div>
+    <h1>Service Dashboard</h1>
+    <div class="grid-container">
+        <div class="quadrant">
+            <h2>PiServ01</h2>
+            <div class="service-container">
+                <a href="http://192.168.0.220" target="_blank" class="service-link">CasaOS</a>
+                <span class="status {{ 'active' if services.get('CasaOS') == 'active' else 'inactive' }}">
+                    {{ services.get('CasaOS', 'unknown') }}
+                </span>
+            </div>
+            <div class="service-container">
+                <a href="https://192.168.0.220:10000" target="_blank" class="service-link">Webmin</a>
+                <span class="status {{ 'active' if services.get('Webmin') == 'active' else 'inactive' }}">
+                    {{ services.get('Webmin', 'unknown') }}
+                </span>
+            </div>
+            <div class="service-container">
+                <a href="http://192.168.0.220:9091" target="_blank" class="service-link">Transmission</a>
+                <span class="status {{ 'active' if services.get('Transmission') == 'active' else 'inactive' }}">
+                    {{ services.get('Transmission', 'unknown') }}
+                </span>
+            </div>
+            <div class="service-container">
+                <a class="service-link">ExpressVPN</a>
+                <span class="status {{ 'active' if services.get('ExpressVPN') == 'active' else 'inactive' }}">
+                    {{ services.get('ExpressVPN', 'unknown') }}
+                </span>
+            </div>
+        </div>
+        <div class="quadrant">
+            <h2>PiServ02</h2>
+            <p>No links or services yet...</p>
+        </div>
+        <div class="quadrant">
+            <h2>PiServ03</h2>
+            <div class="service-container">
+                <a href="#" target="_blank" class="service-link">CasaOS</a>
+                <span class="status inactive">unknown</span>
+            </div>
+            <div class="service-container">
+                <a href="https://192.168.0.222:10000/" target="_blank" class="service-link">Webmin</a>
+                <span class="status inactive">unknown</span>
+            </div>
+            <div class="service-container">
+                <a href="http://192.168.0.222:81/" target="_blank" class="service-link">Nginx Proxy Manager</a>
+                <span class="status inactive">unknown</span>
+            </div>
+        </div>
+        <div class="quadrant">
+            <h2>PiServ04</h2>
+            <p>No links or services yet...</p>
+        </div>
+    </div>
+    <script>
+        const toggleButton = document.getElementById('toggle-mode');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            toggleButton.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

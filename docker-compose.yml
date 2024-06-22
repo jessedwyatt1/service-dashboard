@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  dashboard:
+    build: ./app
+    ports:
+      - "8081:80"
+    restart: always
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/jwyatt/service-dashboard/check_services.sh:/host/check_services.sh:ro
+      - /etc:/host/etc

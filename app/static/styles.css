@@ -1,0 +1,139 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+    padding: 50px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+}
+
+h1, h2 {
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+body.light-mode h1, body.light-mode h2 {
+    color: #1e1e1e;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 0;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 0 10px; /* Add padding for smaller screens */
+    }
+}
+
+.quadrant {
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+body.light-mode .quadrant {
+    background-color: #e0e0e0;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.service-link {
+    padding: 15px 20px;
+    background-color: #3b3b3b;
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 200px;
+    text-align: center;
+}
+
+body.light-mode .service-link {
+    background-color: #c8c8c8;
+    color: #1e1e1e;
+}
+
+.service-link:hover {
+    background-color: #575757;
+}
+
+body.light-mode .service-link:hover {
+    background-color: #a8a8a8;
+}
+
+.status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.status.active {
+    color: #ffffff;
+    background-color: #4caf50;
+}
+
+.status.inactive {
+    color: #ffffff;
+    background-color: #f44336;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 25px;
+    background-color: #575757;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch::before {
+    content: '';
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+body.light-mode .toggle-switch {
+    background-color: #c0c0c0;
+}
+
+body.light-mode .toggle-switch::before {
+    transform: translateX(25px);
+}
+
+.toggle-switch.active::before {
+    transform: translateX(25px);
+}
